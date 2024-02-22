@@ -1,38 +1,211 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anta&display=swap");
+* {
+  padding: 0;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav {
+  padding: 1.5%;
+  height: fit-content;
+  display: flex;
 }
 
-.App-header {
-  background-color: #282c34;
+nav button {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1rem;
+}
+
+#search {
+  min-width: fit-content;
+  border: none;
+  background-color: transparent;
+  padding: 0.5%;
+}
+
+#search:hover {
+  transition: 0.3s;
+  box-shadow: 0 0 5px rgb(0, 98, 211);
+  transform: translateY(-2px);
+}
+
+.add-show-btn {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+}
+
+.add-show-btn button {
+  background-color: #eaeaea;
+  padding: 0.5%;
+  border: none;
+  box-shadow: 0 5px 3px #c0c0c0;
+}
+
+.add-show-btn button:hover {
+  transition: 0.3s;
+  background: transparent;
+  box-shadow: 0 0 5px rgb(0, 98, 211);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+hr {
+  border: 1px solid black;
+}
+
+#modal {
+  min-width: 100vw;
   min-height: 100vh;
+  margin: 0;
+  background-color: #f7f7f7;
+}
+
+form {
+  width: 50vw;
+  height: 50vh;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2%;
+  border-radius: 20px;
+  background: #f8f8f8;
+  box-shadow: 0 0 60px #cecece;
+  transform: translateY(18vh);
+}
+
+#close {
+  display: block;
+  border: none;
+  background-color: transparent;
+}
+
+.hide {
+  display: none;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.close {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#close:hover {
+  background-color: #e4e4e4;
+}
+
+#close .material-symbols-outlined:hover {
+  color: red;
+}
+
+.fieldset {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin: 2%;
+  height: 80%;
+  gap: 5%;
+}
+
+#description {
+  padding: 1%;
+  height: 50%;
+  font-size: 1rem;
+}
+
+#title {
+  padding: 1%;
+  font-size: 1rem;
+}
+
+.submit-container {
+  width: 100%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+#submit {
+  width: 10%;
+  padding: 1%;
+  border: none;
+  background-color: #eaeaea;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#submit:hover {
+  background-color: #cecece;
+}
+
+.card-container {
+  margin: 1%;
+  width: 100vw;
+  height: 85vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4%;
+}
+
+.card {
+  background-color: #e7e7e7;
+  min-width: 35%;
+  max-width: 35%;
+  min-height: 40%;
+  height: fit-content;
+  padding: 1%;
+  border-radius: 8px;
+}
+
+.card h1 {
+  font-family: "Anta", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  word-wrap: break-word;
+}
+
+.card p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  margin: 1rem;
+  word-wrap: break-word;
+}
+
+.card:hover {
+  transition: 0.5s;
+  transform: translateY(-1rem);
+}
+
+.search-bar {
+  margin-left: 0.5%;
+  display: flex;
+}
+
+#search:hover {
+  cursor: pointer;
+}
+
+#search-btn {
+  border: none;
+  padding: 0.3rem;
+  background-color: #ebebeb;
+}
+
+#search-btn .material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+#search-btn .material-symbols-outlined:hover {
+  transform: scale(1.5);
+  cursor: pointer;
 }
