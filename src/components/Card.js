@@ -27,9 +27,9 @@ export const SingleCard = ({ card }) => {
   );
 };
 
-export const NoCard = () => {
+export const NoCard = ({ toggleModal }) => {
   return (
-    <div className="single card card">
+    <div className="single card card" onClick={toggleModal}>
       <h1>Add card to start!</h1>
     </div>
   );
