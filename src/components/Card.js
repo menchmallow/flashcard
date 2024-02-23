@@ -3,9 +3,15 @@ const Card = ({ card, onCardClick, onDelete }) => {
 
   return (
     <div id={id} className="card" onDoubleClick={() => onCardClick(id)}>
-      <h1>{card.title}</h1>
-      <p>{card.description}</p>
-      <button onClick={() => onDelete(id)}>Delete</button>
+      <div className="card-info">
+        <h1>{card.title}</h1>
+        <p>{card.description}</p>
+      </div>
+      <div className="del-btn-container">
+        <button className="del-btn" onClick={() => onDelete(id)}>
+          Delete
+        </button>
+      </div>
     </div>
   );
 };
@@ -14,7 +20,7 @@ export const SingleCard = ({ card }) => {
   const singleCardObj = card[card.length - 1];
 
   return (
-    <div className="card">
+    <div className="single-card card" id="idk">
       <h1>{singleCardObj.title}</h1>
       <p>{singleCardObj.description}</p>
     </div>

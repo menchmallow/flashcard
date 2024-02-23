@@ -37,7 +37,7 @@ function App() {
     };
 
     searchInput.addEventListener("keydown", enterKey);
-  });
+  }, []);
 
   const toggleHide = () => {
     const container = document.getElementById("container");
@@ -45,6 +45,10 @@ function App() {
 
     container.classList.toggle("hide");
     modal.classList.toggle("hide");
+  };
+
+  const toggleMenu = () => {
+    return document.getElementById("menu").classList.toggle("hide-menu");
   };
 
   const onClose = () => {
@@ -55,13 +59,12 @@ function App() {
     modal.classList.toggle("hide");
   };
 
-  const handleSubmit = (title, description) => {
+  const handleSubmit = (title, description, color) => {
     cardInfo.push({
       id: generateId(title, description),
       title: title,
       description: description,
     });
-
     setCard(cardInfo);
     localStorage.setItem("card", JSON.stringify(card));
   };
@@ -96,16 +99,15 @@ function App() {
   const search = () => {
     document.getElementById("input").classList.toggle("hide");
     document.getElementById("search-btn").classList.toggle("hide");
+    document.getElementById("menu-btn").classList.toggle("hide-menu");
   };
 
   // FIX THIS FNDHFJDIJFPOD
   const deleteCard = (id) => {
     const filteredData = card.map((obj) => obj).filter((obj) => obj.id !== id);
     cardInfo = filteredData;
-
     setCard(cardInfo);
-    console.log(card);
-    //localStorage.setItem("card", JSON.stringify(card));
+    localStorage.setItem("card", JSON.stringify(card));
   };
 
   return (
@@ -119,8 +121,8 @@ function App() {
           handleSearch={handleSearch}
           handleShowAll={handleShowAll}
           onSearch={search}
+          toggleMenu={toggleMenu}
         />
-        <hr />
         <div className="card-container">
           {card.length === 0 ? (
             <NoCard />
