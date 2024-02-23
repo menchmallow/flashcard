@@ -1,37 +1,58 @@
 import { useState } from "react";
 
-function Nav({ onToggle, handleSearch, handleShowAll, onSearch }) {
+function Nav({ onToggle, handleSearch, handleShowAll, onSearch, toggleMenu }) {
   const [searchValue, setSearchValue] = useState("");
   return (
     <nav>
-      <button id="search" onClick={onSearch}>
-        Seach Flashcard
-      </button>
-      <div className="search-bar">
-        <input
-          type="text"
-          id="input"
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
-          placeholder="search by title"
-          className="hide"
-        />
+      <div className="search-container">
         <button
-          id="search-btn"
-          onClick={() => handleSearch(searchValue)}
-          className="hide"
+          id="search"
+          onClick={() => {
+            onSearch();
+          }}
         >
-          <span className="material-symbols-outlined">search</span>
+          Search Flashcard
         </button>
+        <div className="search-bar">
+          <input
+            type="text"
+            id="input"
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+            placeholder="search by title"
+            className="hide"
+          />
+          <button
+            id="search-btn"
+            onClick={() => handleSearch(searchValue)}
+            className="hide"
+          >
+            <span className="material-symbols-outlined">search</span>
+          </button>
+        </div>
       </div>
-
-      <div className="add-show-btn">
-        <button id="show-all-cards" onClick={handleShowAll}>
+      <div className="add-show-btn hide-menu" id="menu">
+        <button
+          id="show-all-cards"
+          onClick={() => {
+            handleShowAll();
+            toggleMenu();
+          }}
+        >
           Show all cards
         </button>
-        <button id="add-card" onClick={onToggle}>
+        <button
+          id="add-card"
+          onClick={() => {
+            onToggle();
+            toggleMenu();
+          }}
+        >
           Add card
         </button>
+      </div>
+      <div className="toggle-menu" id="menu-btn" onClick={toggleMenu}>
+        <span className="material-symbols-outlined">menu</span>
       </div>
     </nav>
   );

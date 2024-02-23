@@ -13,6 +13,17 @@ function FlashcardModal({ onClose, handleSubmit }) {
           </button>
         </div>
         <div className="fieldset">
+          <div className="color-picker-container">
+            <label htmlFor="color-picker">Color: </label>
+            <select name="light-gray" id="color-picker">
+              <option name="#e7e7e7">Light gray (default)</option>
+              <option name="#ffb3ba">Pastel-red</option>
+              <option name="#ffcce7">Pink</option>
+              <option name="#97d7fc">Light blue</option>
+              <option name="#8c75ff">Purple</option>
+              <option name="#b7c297">Sage green</option>
+            </select>
+          </div>
           <label htmlFor="title">Title:</label>
           <input
             type="text"
