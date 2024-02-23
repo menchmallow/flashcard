@@ -125,7 +125,7 @@ function App() {
         />
         <div className="card-container">
           {card.length === 0 ? (
-            <NoCard />
+            <NoCard toggleModal={toggleHide} />
           ) : showAll ? (
             <CardList
               card={card}
