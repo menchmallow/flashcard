@@ -29,7 +29,7 @@ export const SingleCard = ({ card }) => {
 
 export const NoCard = () => {
   return (
-    <div className="card">
+    <div className="single card card">
       <h1>Add card to start!</h1>
     </div>
   );
