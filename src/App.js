@@ -6,8 +6,10 @@ import CardList from "./components/Card";
 import { NoCard, SingleCard } from "./components/Card";
 
 const cardData = JSON.parse(localStorage.getItem("card"));
-
 let cardInfo = cardData ? cardData : [];
+
+const getCardColor = localStorage.getItem("card color");
+let cardColor = getCardColor ? getCardColor : "#e7e7e7";
 
 const generateId = (title, description) => {
   let char = [];
@@ -23,9 +25,10 @@ const generateId = (title, description) => {
 };
 
 function App() {
-  const [card, setCard] = useState(cardData ? cardData : []);
+  const [card, setCard] = useState(cardInfo);
   const [showAll, setShowAll] = useState(false);
   const [singleCard, setSingleCard] = useState(card);
+  const [color, setColor] = useState(cardColor);
 
   useEffect(() => {
     const searchInput = document.getElementById("input");
@@ -59,12 +62,18 @@ function App() {
     modal.classList.toggle("hide");
   };
 
-  const handleSubmit = (title, description, color) => {
+  const colorPicker = (color) => {
+    setColor(color);
+    localStorage.setItem("card color", color);
+  };
+
+  const handleSubmit = (title, description) => {
     cardInfo.push({
       id: generateId(title, description),
       title: title,
       description: description,
     });
+
     setCard(cardInfo);
     localStorage.setItem("card", JSON.stringify(card));
   };
@@ -122,6 +131,7 @@ function App() {
           handleShowAll={handleShowAll}
           onSearch={search}
           toggleMenu={toggleMenu}
+          colorPicker={colorPicker}
         />
         <div className="card-container">
           {card.length === 0 ? (
@@ -131,9 +141,10 @@ function App() {
               card={card}
               onCardClick={onFlashcardClick}
               onDelete={deleteCard}
+              color={color}
             />
           ) : (
-            <SingleCard card={singleCard} />
+            <SingleCard card={singleCard} color={color} />
           )}
         </div>
       </div>

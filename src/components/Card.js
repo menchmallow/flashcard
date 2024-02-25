@@ -1,8 +1,13 @@
-const Card = ({ card, onCardClick, onDelete }) => {
+const Card = ({ card, onCardClick, onDelete, color }) => {
   const { id } = card;
 
   return (
-    <div id={id} className="card" onDoubleClick={() => onCardClick(id)}>
+    <div
+      id={id}
+      className="card"
+      onDoubleClick={() => onCardClick(id)}
+      style={{ backgroundColor: color }}
+    >
       <div className="card-info">
         <h1>{card.title}</h1>
         <p>{card.description}</p>
@@ -16,11 +21,11 @@ const Card = ({ card, onCardClick, onDelete }) => {
   );
 };
 
-export const SingleCard = ({ card }) => {
+export const SingleCard = ({ card, color }) => {
   const singleCardObj = card[card.length - 1];
 
   return (
-    <div className="single-card card" id="idk">
+    <div className="single-card card" style={{ backgroundColor: color }}>
       <h1>{singleCardObj.title}</h1>
       <p>{singleCardObj.description}</p>
     </div>
@@ -29,19 +34,20 @@ export const SingleCard = ({ card }) => {
 
 export const NoCard = ({ toggleModal }) => {
   return (
-    <div className="single card card" onClick={toggleModal}>
+    <div className="single-card card" onClick={toggleModal}>
       <h1>Add card to start!</h1>
     </div>
   );
 };
 
-function CardList({ card, onCardClick, onDelete }) {
+function CardList({ card, onCardClick, onDelete, color }) {
   return card.map((card) => (
     <Card
       key={card.id}
       card={card}
       onCardClick={onCardClick}
       onDelete={onDelete}
+      color={color}
     />
   ));
 }
