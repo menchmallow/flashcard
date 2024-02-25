@@ -1,6 +1,13 @@
 import { useState } from "react";
 
-function Nav({ onToggle, handleSearch, handleShowAll, onSearch, toggleMenu }) {
+function Nav({
+  onToggle,
+  handleSearch,
+  handleShowAll,
+  onSearch,
+  toggleMenu,
+  colorPicker,
+}) {
   const [searchValue, setSearchValue] = useState("");
   return (
     <nav>
@@ -32,6 +39,23 @@ function Nav({ onToggle, handleSearch, handleShowAll, onSearch, toggleMenu }) {
         </div>
       </div>
       <div className="add-show-btn hide-menu" id="menu">
+        <div className="color-picker-container">
+          <label htmlFor="color-picker">Flashcard color: </label>
+          <select
+            id="color-picker"
+            onChange={(e) => {
+              colorPicker(e.target.value);
+              toggleMenu();
+            }}
+          >
+            <option value="#e7e7e7">Light gray (default)</option>
+            <option value="#ffb3ba">Pastel-red</option>
+            <option value="#ffcce7">Pink</option>
+            <option value="#97d7fc">Light blue</option>
+            <option value="#8c75ff">Purple</option>
+            <option value="#b7c297">Sage green</option>
+          </select>
+        </div>
         <button
           id="show-all-cards"
           onClick={() => {

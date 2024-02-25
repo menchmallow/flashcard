@@ -50,6 +50,7 @@ nav button {
   display: flex;
   justify-content: flex-end;
   gap: 1.5rem;
+  align-items: center;
 }
 
 .add-show-btn button {
@@ -65,6 +66,11 @@ nav button {
   box-shadow: 0 0 5px rgb(0, 98, 211);
   transform: translateY(-2px);
   cursor: pointer;
+}
+
+.color-picker-container {
+  font-family: "Roboto Mono", monospace;
+  display: flex;
 }
 
 #modal {
@@ -246,7 +252,7 @@ form {
   display: none;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1024px) {
   * {
     margin: 0;
     padding: 0;
